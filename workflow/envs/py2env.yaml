@@ -1,0 +1,10 @@
+name: pop_gen_cnn_py2
+channels:
+    - conda-forge
+dependencies:
+    - pip=20.1.1
+    - python=2.7.12
+    - pip:
+          - keras==2.2.4
+          - scikit-learn==0.20.4
+          - tensorflow==1.15.0
