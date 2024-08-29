@@ -1,0 +1,27 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10"]
+      max-parallel: 5
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Add micromamba to system path
+      uses: mamba-org/provision-with-micromamba@main
+      with:
+        environment-name: prml
+        activate-environment: prml
+        environment-file: workflow/envs/env.yaml
+    - name: dry-run
+      run: |
+        micromamba run -n prml snakemake -np
