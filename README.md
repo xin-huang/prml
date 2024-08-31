@@ -8,7 +8,7 @@ This repository contains a Snakemake workflow designed to reproduce the results 
 
 ## Usage
 
-1. Install [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) or [mamba](https://mamba.readthedocs.io/en/latest/).
+1. Install [Mambaforge (version: 23.3.1)](https://github.com/conda-forge/miniforge/releases/download/23.3.1-1/Mambaforge-23.3.1-1-Linux-x86_64.sh).
 
 2. Clone this repository:
 
@@ -20,13 +20,13 @@ cd prml
 3. Create the environment:
 
 ```
-conda env create -f workflow/envs/env.yaml
+mamba env create -f workflow/envs/env.yaml
 ```
 
 4. Activate the environment:
 
 ```
-conda activate prml
+mamba activate prml
 ```
 
 5. Run the analysis:
